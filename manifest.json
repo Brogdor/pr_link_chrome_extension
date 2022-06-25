@@ -1,0 +1,13 @@
+{
+    "name": "PR Link",
+    "description": "Looks at PR window to get pastable text for PR channel",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "Copy PR Link"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["activeTab", "scripting"]
+}
