@@ -3,18 +3,18 @@
     title: 'js-issue-title markdown-title',
     linesAdded: '#diffstat > span.color-fg-success',
     linesRemoved: '#diffstat > span.color-fg-danger',
+    branch: 'span.commit-ref.css-truncate.user-select-contain.expandable.head-ref > a > span'
   };
 
   const pullRequestTitle = document.getElementsByClassName(selector.title)[0].textContent.trim();
   const pullRequestUrl = window.location.href;
   const linesAdded = document.querySelector(selector.linesAdded).textContent.trim();
   const linesRemoved = document.querySelector(selector.linesRemoved).textContent.trim();
+  const branchName = document.querySelector(selector.branch).textContent.trim();
 
-
-  const formatLink = (label, url) => `[${label}](${url})`;
   const formatDiff = (added, removed) => `(${added},${removed})`;
 
-  const textToCopy = formatLink(pullRequestTitle, pullRequestUrl) + " " + formatDiff(linesAdded, linesRemoved);
+  const textToCopy = `${pullRequestTitle} ${formatDiff(linesAdded, linesRemoved)}\n${pullRequestUrl}\n${branchName}`;
 
   const copyTextToClipboard = (text) => {
     const textArea = document.createElement("textarea");
